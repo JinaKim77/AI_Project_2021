@@ -1,0 +1,101 @@
+package ie.gmit.sw.ai;
+
+import ie.gmit.sw.ai.nn.BackpropagationTrainer;
+import ie.gmit.sw.ai.nn.NeuralNetwork;
+import ie.gmit.sw.ai.nn.Utils;
+import ie.gmit.sw.ai.nn.activator.Activator;
+import javafx.application.Application;
+
+/**
+* 
+*
+* @author Jina Kim
+*
+* 
+* 
+*
+*/
+
+public class Runner {
+	
+	public Runner() throws Exception {
+		NeuralNetwork nn = new NeuralNetwork(Activator.ActivationFunction.Sigmoid, 4, 3, 4);
+		
+		BackpropagationTrainer trainer = new BackpropagationTrainer(nn);
+		trainer.train(data, expected, 0.6, 10000);
+		//trainer.train(Utils.normalize(data, 0, 10), expected, 0.6, 10000);
+		
+		int testIndex = 11;
+		double[] result = nn.process(data[testIndex]);
+		for (int i = 0; i < expected[testIndex].length; i++){
+		 System.out.print(expected[testIndex][i] + ",");
+		}
+		System.out.println("==>" + (Utils.getMaxIndex(result) + 1));
+	}
+	
+	/*
+	 *  
+	 * 
+	 *  Inputs
+	 *  -------------
+	 *  1) Health (2 = Healthy, 1 = Minor Injuries, 0 = Serious Injuries)
+	 *  2) Has a Sword (1 = yes, 0 = no)
+	 *  3) Has a Gun (1 = yes, 0 = no)
+	 *  4) Number of Enemies (This value may need to be normalized)
+	 *  
+	 *  Outputs
+	 *  -------------
+	 *  1) Panic
+	 *  2) Attack
+	 *  3) Hide
+	 *  4) Run
+	 *  
+	 */
+	
+
+	private double[][] data = { //Health, Sword, Gun, Enemies
+		{ 2, 0, 0, 0 }, { 2, 0, 0, 1 }, { 2, 0, 1, 1 }, { 2, 0, 1, 2 }, { 2, 1, 0, 2 },
+		{ 2, 1, 0, 1 }, { 1, 0, 0, 0 }, { 1, 0, 0, 1 }, { 1, 0, 1, 1 }, { 1, 0, 1, 2 }, 
+		{ 1, 1, 0, 2 }, { 1, 1, 0, 1 }, { 0, 0, 0, 0 }, { 0, 0, 0, 1 }, { 0, 0, 1, 1 }, 
+		{ 0, 0, 1, 2 }, { 0, 1, 0, 2 }, { 0, 1, 0, 1 } };
+
+	private double[][] expected = { //Panic, Attack, Hide, Run
+		{ 0.0, 0.0, 1.0, 0.0 }, { 0.0, 0.0, 1.0, 0.0 }, { 1.0, 0.0, 0.0, 0.0 }, { 1.0, 0.0, 0.0, 0.0 }, 
+		{ 0.0, 0.0, 0.0, 1.0 }, { 1.0, 0.0, 0.0, 0.0 }, { 0.0, 0.0, 1.0, 0.0 }, { 0.0, 0.0, 0.0, 1.0 }, 
+		{ 1.0, 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0, 1.0 }, { 0.0, 0.0, 0.0, 1.0 }, { 0.0, 0.0, 0.0, 1.0 }, 
+		{ 0.0, 0.0, 1.0, 0.0 }, { 0.0, 0.0, 0.0, 1.0 }, { 0.0, 0.0, 0.0, 1.0 }, { 0.0, 1.0, 0.0, 0.0 }, 
+		{ 0.0, 1.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0, 1.0 } };
+
+	public static void main(String[] args) throws Exception {
+		/*
+		 * PLEASE READ CAREFULLY
+		 * ---------------------
+		 * If you need to load FCL functions to the application or
+		 * train, configure and load a neural network, then it is 
+		 * best to do all of this before loading the UI. Launching
+		 * a UI in any language or framework and then starting a 
+		 * long running task in the same thread is guaranteed to
+		 * freeze the screen and crash the programme.
+		 * 
+		 * NB: you can assume that the JavaFX 15 API is already
+		 * available and configured on the MODULE-PATH (NOT THE 
+		 * CLASSPATH). 
+		 */
+		
+		  //Add long-running initialisation instructions here.
+		
+		
+		
+		/*
+		 * Launch the JavaFX UI only when all the long-running AI 
+		 * configuration tasks have been completed. Use the arrow 
+		 * keys to move the player character and the 'Z' key to 
+		 * toggle the zoom in / out.
+		 */
+		new Runner();
+		
+		Application.launch(GameWindow.class, args);
+		
+		
+	}
+}

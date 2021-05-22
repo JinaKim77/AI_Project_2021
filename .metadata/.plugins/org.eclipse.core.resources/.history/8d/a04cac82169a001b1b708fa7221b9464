@@ -1,0 +1,20 @@
+package ie.gmit.sw.resources;
+
+/**
+* 
+*
+* @author Jina Kim
+*
+* 
+* 
+*
+*/
+
+public class NeuralNetworkImp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

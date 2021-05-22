@@ -1,0 +1,38 @@
+package ie.gmit.sw.ai;
+
+import net.sourceforge.jFuzzyLogic.FIS;
+import net.sourceforge.jFuzzyLogic.FunctionBlock;
+import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
+import net.sourceforge.jFuzzyLogic.rule.Variable;
+
+/**
+* 
+*
+* @author Jina Kim
+*
+* 
+* 
+*
+*/
+
+public class FuzzyLogicImp {
+
+	private static final String FCL_FILE = "./fcl/calculation.fcl";
+	
+	public double getRisk(double strength, int damage) {
+		FIS fis = FIS.load(FCL_FILE, true); //Load and parse the FCL
+		
+		FunctionBlock fb = fis.getFunctionBlock("getRisk");
+		JFuzzyChart.get().chart(fb);
+		fis.setVariable("strength", strength);
+		fis.setVariable("damage",damage);
+		fis.evaluate();
+		
+		Variable risk = fb.getVariable("risk");
+		JFuzzyChart.get().chart(risk, risk.getDefuzzifier(), true);
+			
+		return risk.getValue();
+		
+	}
+	
+}

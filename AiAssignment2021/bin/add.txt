@@ -1,0 +1,1 @@
+java --module-path .;C:\Users\gina7\Downloads\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib;C:\Users\gina7\Desktop\Jars/encog-core-3.4.jar/;C:\Users\gina7\Desktop\Jars/jFuzzyLogic.jar --module gmit.software/ie.gmit.sw.ai.Runner

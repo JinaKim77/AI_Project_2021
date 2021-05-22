@@ -1,0 +1,10 @@
+package ie.gmit.sw.resources;
+
+public class neural {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

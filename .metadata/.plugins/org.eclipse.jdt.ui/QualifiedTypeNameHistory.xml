@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="net.sourceforge.jFuzzyLogic.plot.JFuzzyChart"/>
+    <fullyQualifiedTypeName name="net.sourceforge.jFuzzyLogic.rule.Variable"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="ie.gmit.sw.ai.activator.Activator"/>
+    <fullyQualifiedTypeName name="ie.gmit.sw.ai.nn.NeuralNetwork"/>
+    <fullyQualifiedTypeName name="ie.gmit.sw.ai.nn.activator.Activator"/>
+    <fullyQualifiedTypeName name="ie.gmit.sw.ai.nn.BackpropagationTrainer"/>
+    <fullyQualifiedTypeName name="ie.gmit.sw.ai.nn.Utils"/>
+</qualifiedTypeNameHistroy>
