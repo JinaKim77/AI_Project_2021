@@ -1,6 +1,20 @@
-# Artificial Intelligence Project 2021
+<h2 align="center">
+    Artificial Intelligence Project 2021
+</h2>
 
-### The author is Jina Kim (G00353420@gmit.ie)
+<p align="center">
+  <img src="./GMIT_Logo.PNG" width=700 height=250/>
+</p>
+
+## Project Details
+Heading     | Details
+------------|-------------------------------------
+Project     | [Spec](https://github.com/JinaKim77/AI_Project_2021/blob/master/aiAssignment-2021.pdf)
+Course      | BSc (Hons) in Software Development
+Module      | Artificial intelligence
+Authors     | Jina Kim 
+ID          | G00353420
+Lecturer    | John Healy
 
 <br> 
 
